@@ -32,7 +32,6 @@ static Unit mass_units[] = {
     {"tonne", 1000000.0},
     {"ounce", 28.3495},
     {"pound", 453.592},
-    {"stone", 6350.29}
 };
 
 

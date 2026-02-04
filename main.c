@@ -16,9 +16,33 @@ bool read_double_input(const char* prompt, double* out_value) {
     return true;
 }
 
+UnitType get_unit_type_from_input(const char* input) {
+    if (strcmp(input, "length") == 0) return UNIT_TYPE_LENGTH;
+    if (strcmp(input, "mass") == 0) return UNIT_TYPE_MASS;
+    if (strcmp(input, "volume") == 0) return UNIT_TYPE_VOLUME;
+
+    return -1; // invalid
+}
+
+
 int main() {
     double input_value;
+    char type_input[32];
     char from_unit[50], to_unit[50];
+
+    printf("Choose unit type (length, mass, volume): ");
+    if (fgets(type_input, sizeof(type_input), stdin) == NULL) {
+        printf("Input error.\n");
+        return 1;
+    }
+
+    type_input[strcspn(type_input, "\n")] = 0;
+
+    UnitType type = get_unit_type_from_input(type_input);
+    if (type == -1) {
+        printf("Invalid unit type.\n");
+        return 1;
+    }
 
     if (!read_double_input("Enter value to convert: ", &input_value)) {
         printf("Invalid input. Please enter a number.\n");
@@ -30,8 +54,6 @@ int main() {
 
     printf("To unit (e.g. mile): ");
     scanf("%s", to_unit);
-
-    UnitType type = UNIT_TYPE_LENGTH; // for now, only length
 
     Unit* from = find_unit_by_name(type, from_unit);
     Unit* to = find_unit_by_name(type, to_unit);
