@@ -63,6 +63,7 @@ static UnitType unit_type_from_string(const char *s, gboolean *ok) {
     if (strcmp(s, "volume") == 0) return UNIT_TYPE_VOLUME;
     if (strcmp(s, "area") == 0) return UNIT_TYPE_AREA;
     if (strcmp(s, "time") == 0) return UNIT_TYPE_TIME;
+    if (strcmp(s, "temperature") == 0) return UNIT_TYPE_TEMPERATURE;
     if (strcmp(s, "energy") == 0) return UNIT_TYPE_ENERGY;
     if (strcmp(s, "power") == 0) return UNIT_TYPE_POWER;
     if (strcmp(s, "pressure") == 0) return UNIT_TYPE_PRESSURE;
@@ -157,7 +158,12 @@ static void on_button_clicked(GtkWidget *widget, gpointer data) {
         return;
     }
 
-    double result = convert(value, from->to_base, to->to_base);
+    double result;
+
+    if (type == UNIT_TYPE_TEMPERATURE)
+        result = convert_temperature(value, from->name, to->name);
+    else
+        result = convert(value, from->to_base, to->to_base);
 
     char value_str[64];
     char result_str[64];
@@ -202,6 +208,7 @@ static void activate(GtkApplication* app, gpointer user_data) {
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(type_combo), "volume");
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(type_combo), "area");
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(type_combo), "time");
+    gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(type_combo), "temperature");
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(type_combo), "energy");
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(type_combo), "power");
     gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(type_combo), "pressure");

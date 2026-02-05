@@ -6,6 +6,28 @@ double convert(double value, double from_factor, double to_factor) {
     return base / to_factor;
 }
 
+double convert_temperature(double value, const char* from, const char* to) {
+    double c;
+
+    if (strcmp(from, "celsius") == 0)
+        c = value;
+    else if (strcmp(from, "fahrenheit") == 0)
+        c = (value - 32.0) * 5.0 / 9.0;
+    else if (strcmp(from, "kelvin") == 0)
+        c = value - 273.15;
+    else
+        return 0;
+
+    if (strcmp(to, "celsius") == 0)
+        return c;
+    else if (strcmp(to, "fahrenheit") == 0)
+        return c * 9.0 / 5.0 + 32.0;
+    else if (strcmp(to, "kelvin") == 0)
+        return c + 273.15;
+
+    return 0;
+}
+
 static Unit length_units[] = {
     {"millimeter","millimeter","millimeters",0.001},
     {"centimeter","centimeter","centimeters",0.01},
@@ -54,6 +76,12 @@ static Unit time_units[] = {
     {"week","week","weeks",604800.0},
     {"month","month","months",2629746.0},
     {"year","year","years",31557600.0}
+};
+
+static Unit temperature_units[] = {
+    {"celsius", "degree Celsius", "degrees Celsius", 0},
+    {"fahrenheit", "degree Fahrenheit", "degrees Fahrenheit", 0},
+    {"kelvin", "kelvin", "kelvins", 0}
 };
 
 static Unit energy_units[] = {
@@ -106,6 +134,9 @@ Unit* get_units(UnitType type, int *count) {
         case UNIT_TYPE_TIME:
             *count = (int)(sizeof(time_units) / sizeof(Unit));
             return time_units;
+        case UNIT_TYPE_TEMPERATURE:
+            *count = sizeof(temperature_units) / sizeof(Unit);
+            return temperature_units;
         case UNIT_TYPE_ENERGY:
             *count = (int)(sizeof(energy_units) / sizeof(Unit));
             return energy_units;
