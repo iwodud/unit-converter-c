@@ -87,10 +87,16 @@ static void on_button_clicked(GtkWidget *widget, gpointer data) {
     }
 
     double result = convert(value, from->to_base, to->to_base);
-    double rounded = round_to_two_decimals(result);
+
+    char result_str[32];
+    if (result < 0.01 && result > 0.0) {
+        snprintf(result_str, sizeof(result_str), "%.9f", result);
+    } else {
+        snprintf(result_str, sizeof(result_str), "%.2f", result);
+    }
 
     char buffer[128];
-    snprintf(buffer, sizeof(buffer), "%.2f %s = %.2f %s", value, from->name, rounded, to->name);
+    snprintf(buffer, sizeof(buffer), "%.2f %s = %s %s", value, from->name, result_str, to->name);
     gtk_label_set_text(GTK_LABEL(widgets->result_label), buffer);
 }
 
