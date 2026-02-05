@@ -22,7 +22,7 @@ typedef enum {
 } UnitType;
 
 double convert(double value, double from_factor, double to_factor);
-double convert_temperature(double value, const char* from, const char* to);  // <-- DODAJ TO
+double convert_temperature(double value, const char* from, const char* to);
 
 Unit* get_units(UnitType type, int *count);
 Unit* find_unit_by_name(UnitType type, const char* name);

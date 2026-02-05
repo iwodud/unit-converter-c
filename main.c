@@ -252,6 +252,7 @@ static void activate(GtkApplication* app, gpointer user_data) {
     widgets->to_combo = to_combo;
 
     g_signal_connect(button, "clicked", G_CALLBACK(on_button_clicked), widgets);
+    g_signal_connect(entry, "activate", G_CALLBACK(on_button_clicked), widgets);
     g_signal_connect(type_combo, "changed", G_CALLBACK(on_type_changed), widgets);
     g_signal_connect(swap_button, "clicked", G_CALLBACK(on_swap_clicked), widgets);
 
