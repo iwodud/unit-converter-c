@@ -110,6 +110,16 @@ static void on_swap_clicked(GtkWidget *widget, gpointer data) {
     }
 }
 
+static const char* unit_label_for_value(const Unit* unit, double value) {
+    if (!unit) return "";
+
+    double abs_val = fabs(value);
+    if (fabs(abs_val - 1.0) < 1e-9) {
+        return unit->singular_label;
+    }
+    return unit->plural_label;
+}
+
 static void on_button_clicked(GtkWidget *widget, gpointer data) {
     AppWidgets *widgets = (AppWidgets *)data;
 
@@ -154,8 +164,12 @@ static void on_button_clicked(GtkWidget *widget, gpointer data) {
     format_number(value_str, sizeof(value_str), value);
     format_number(result_str, sizeof(result_str), result);
 
+    const char* from_label = unit_label_for_value(from, value);
+    const char* to_label   = unit_label_for_value(to, result);
+
     char buffer[256];
-    snprintf(buffer, sizeof(buffer), "%s %s = %s %s", value_str, from->name, result_str, to->name);
+    snprintf(buffer, sizeof(buffer), "%s %s = %s %s",
+            value_str, from_label, result_str, to_label);
     gtk_label_set_text(GTK_LABEL(widgets->result_label), buffer);
 }
 

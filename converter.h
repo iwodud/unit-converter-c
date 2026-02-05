@@ -2,8 +2,10 @@
 #define CONVERTER_H
 
 typedef struct {
-    const char* name;   // e.g. "kilometer"
-    double to_base;     // factor to convert to base unit
+    const char* name;
+    const char* singular_label; // e.g. "second", "square meter"
+    const char* plural_label; // e.g. "seconds", "square meters"
+    double to_base;
 } Unit;
 
 typedef enum {

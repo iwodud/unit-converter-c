@@ -6,99 +6,87 @@ double convert(double value, double from_factor, double to_factor) {
     return base / to_factor;
 }
 
-/* -------------------- UNITS -------------------- */
-
-// Base: meter
 static Unit length_units[] = {
-    {"millimeter", 0.001},
-    {"centimeter", 0.01},
-    {"meter", 1.0},
-    {"kilometer", 1000.0},
-    {"inch", 0.0254},
-    {"foot", 0.3048},
-    {"yard", 0.9144},
-    {"mile", 1609.34},
-    {"nautical_mile", 1852.0}
+    {"millimeter","millimeter","millimeters",0.001},
+    {"centimeter","centimeter","centimeters",0.01},
+    {"meter","meter","meters",1.0},
+    {"kilometer","kilometer","kilometers",1000.0},
+    {"inch","inch","inches",0.0254},
+    {"foot","foot","feet",0.3048},
+    {"yard","yard","yards",0.9144},
+    {"mile","mile","miles",1609.34},
+    {"nautical_mile","nautical mile","nautical miles",1852.0}
 };
 
-// Base: gram
 static Unit mass_units[] = {
-    {"milligram", 0.001},
-    {"gram", 1.0},
-    {"kilogram", 1000.0},
-    {"tonne", 1000000.0},
-    {"ounce", 28.3495},
-    {"pound", 453.592}
+    {"milligram","milligram","milligrams",0.001},
+    {"gram","gram","grams",1.0},
+    {"kilogram","kilogram","kilograms",1000.0},
+    {"tonne","tonne","tonnes",1000000.0},
+    {"ounce","ounce","ounces",28.3495},
+    {"pound","pound","pounds",453.592}
 };
 
-// Base: liter
 static Unit volume_units[] = {
-    {"milliliter", 0.001},
-    {"centiliter", 0.01},
-    {"deciliter", 0.1},
-    {"liter", 1.0},
-    {"cubic_meter", 1000.0},
-    {"gallon", 3.78541}
+    {"milliliter","milliliter","milliliters",0.001},
+    {"centiliter","centiliter","centiliters",0.01},
+    {"deciliter","deciliter","deciliters",0.1},
+    {"liter","liter","liters",1.0},
+    {"cubic_meter","cubic meter","cubic meters",1000.0},
+    {"gallon","gallon","gallons",3.78541}
 };
 
-// Base: square_meter
 static Unit area_units[] = {
-    {"square_meter", 1.0},
-    {"square_kilometer", 1000000.0},
-    {"hectare", 10000.0},
-    {"acre", 4046.8564224},
-    {"square_foot", 0.09290304},
-    {"square_inch", 0.00064516},
-    {"square_mile", 2589988.110336}
+    {"square_meter","square meter","square meters",1.0},
+    {"square_kilometer","square kilometer","square kilometers",1000000.0},
+    {"hectare","hectare","hectares",10000.0},
+    {"acre","acre","acres",4046.8564224},
+    {"square_foot","square foot","square feet",0.09290304},
+    {"square_inch","square inch","square inches",0.00064516},
+    {"square_mile","square mile","square miles",2589988.110336}
 };
 
-// Base: second
 static Unit time_units[] = {
-    {"second", 1.0},
-    {"minute", 60.0},
-    {"hour", 3600.0},
-    {"day", 86400.0},
-    {"week", 604800.0},
-    {"month", 2629746.0},     // approx 30.44 days
-    {"year", 31557600.0}      // approx 365.25 days
+    {"second","second","seconds",1.0},
+    {"minute","minute","minutes",60.0},
+    {"hour","hour","hours",3600.0},
+    {"day","day","days",86400.0},
+    {"week","week","weeks",604800.0},
+    {"month","month","months",2629746.0},
+    {"year","year","years",31557600.0}
 };
 
-// Base: joule
 static Unit energy_units[] = {
-    {"joule", 1.0},
-    {"kilojoule", 1000.0},
-    {"calorie", 4.184},           // thermochemical calorie
-    {"kilocalorie", 4184.0},
-    {"watt_hour", 3600.0},
-    {"kilowatt_hour", 3600000.0},
-    {"electronvolt", 1.602176634e-19}
+    {"joule","joule","joules",1.0},
+    {"kilojoule","kilojoule","kilojoules",1000.0},
+    {"calorie","calorie","calories",4.184},
+    {"kilocalorie","kilocalorie","kilocalories",4184.0},
+    {"watt_hour","watt hour","watt hours",3600.0},
+    {"kilowatt_hour","kilowatt hour","kilowatt hours",3600000.0},
 };
 
-// Base: watt
 static Unit power_units[] = {
-    {"watt", 1.0},
-    {"kilowatt", 1000.0},
-    {"megawatt", 1000000.0},
-    {"horsepower_mechanical", 745.69987158227022},
-    {"horsepower_metric", 735.49875}
+    {"watt","watt","watts",1.0},
+    {"kilowatt","kilowatt","kilowatts",1000.0},
+    {"megawatt","megawatt","megawatts",1000000.0},
+    {"horsepower_mechanical","horsepower (mechanical)","horsepower (mechanical)",745.69987158227022},
+    {"horsepower_metric","horsepower (metric)","horsepower (metric)",735.49875}
 };
 
-// Base: pascal
 static Unit pressure_units[] = {
-    {"pascal", 1.0},
-    {"kilopascal", 1000.0},
-    {"bar", 100000.0},
-    {"atmosphere", 101325.0},
-    {"mmHg", 133.322387415},
-    {"psi", 6894.757293168}
+    {"pascal","pascal","pascals",1.0},
+    {"kilopascal","kilopascal","kilopascals",1000.0},
+    {"bar","bar","bars",100000.0},
+    {"atmosphere","atmosphere","atmospheres",101325.0},
+    {"mmHg","millimeter of mercury","millimeters of mercury",133.322387415},
+    {"psi","psi","psi",6894.757293168}
 };
 
-// Base: meter_per_second
 static Unit speed_units[] = {
-    {"meter_per_second", 1.0},
-    {"kilometer_per_hour", 0.2777777777778},
-    {"mile_per_hour", 0.44704},
-    {"knot", 0.514444444444}
+    {"meter_per_second","meter per second","meters per second",1.0},
+    {"kilometer_per_hour","kilometer per hour","kilometers per hour",0.2777777777778},
+    {"mile_per_hour","mile per hour","miles per hour",0.44704},
+    {"knot","knot","knots",0.514444444444}
 };
 
 Unit* get_units(UnitType type, int *count) {
@@ -140,7 +128,6 @@ Unit* find_unit_by_name(UnitType type, const char* name) {
     int count = 0;
     Unit* list = get_units(type, &count);
     if (!list || !name) return NULL;
-
     for (int i = 0; i < count; i++) {
         if (strcmp(list[i].name, name) == 0) {
             return &list[i];
