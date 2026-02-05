@@ -72,3 +72,23 @@ Unit* find_unit_by_name(UnitType type, const char* name) {
 
     return NULL; // not found
 }
+
+Unit* get_units(UnitType type, int *count) {
+    switch (type) {
+        case UNIT_TYPE_LENGTH:
+            *count = sizeof(length_units) / sizeof(Unit);
+            return length_units;
+
+        case UNIT_TYPE_MASS:
+            *count = sizeof(mass_units) / sizeof(Unit);
+            return mass_units;
+
+        case UNIT_TYPE_VOLUME:
+            *count = sizeof(volume_units) / sizeof(Unit);
+            return volume_units;
+
+        default:
+            *count = 0;
+            return NULL;
+    }
+}
