@@ -37,7 +37,7 @@ static Unit length_units[] = {
     {"foot","foot","feet",0.3048},
     {"yard","yard","yards",0.9144},
     {"mile","mile","miles",1609.34},
-    {"nautical_mile","nautical mile","nautical miles",1852.0}
+    {"nautical mile","nautical mile","nautical miles",1852.0}
 };
 
 static Unit mass_units[] = {
@@ -54,18 +54,18 @@ static Unit volume_units[] = {
     {"centiliter","centiliter","centiliters",0.01},
     {"deciliter","deciliter","deciliters",0.1},
     {"liter","liter","liters",1.0},
-    {"cubic_meter","cubic meter","cubic meters",1000.0},
+    {"cubic meter","cubic meter","cubic meters",1000.0},
     {"gallon","gallon","gallons",3.78541}
 };
 
 static Unit area_units[] = {
-    {"square_meter","square meter","square meters",1.0},
-    {"square_kilometer","square kilometer","square kilometers",1000000.0},
+    {"square meter","square meter","square meters",1.0},
+    {"square kilometer","square kilometer","square kilometers",1000000.0},
     {"hectare","hectare","hectares",10000.0},
     {"acre","acre","acres",4046.8564224},
-    {"square_foot","square foot","square feet",0.09290304},
-    {"square_inch","square inch","square inches",0.00064516},
-    {"square_mile","square mile","square miles",2589988.110336}
+    {"square foot","square foot","square feet",0.09290304},
+    {"square inch","square inch","square inches",0.00064516},
+    {"square mile","square mile","square miles",2589988.110336}
 };
 
 static Unit time_units[] = {
@@ -79,9 +79,9 @@ static Unit time_units[] = {
 };
 
 static Unit temperature_units[] = {
-    {"celsius", "degree Celsius", "degrees Celsius", 0},
-    {"fahrenheit", "degree Fahrenheit", "degrees Fahrenheit", 0},
-    {"kelvin", "kelvin", "kelvins", 0}
+    {"celsius","degree Celsius","degrees Celsius",0},
+    {"fahrenheit","degree Fahrenheit","degrees Fahrenheit",0},
+    {"kelvin","kelvin","kelvins",0}
 };
 
 static Unit energy_units[] = {
@@ -89,16 +89,16 @@ static Unit energy_units[] = {
     {"kilojoule","kilojoule","kilojoules",1000.0},
     {"calorie","calorie","calories",4.184},
     {"kilocalorie","kilocalorie","kilocalories",4184.0},
-    {"watt_hour","watt hour","watt hours",3600.0},
-    {"kilowatt_hour","kilowatt hour","kilowatt hours",3600000.0},
+    {"watt hour","watt hour","watt hours",3600.0},
+    {"kilowatt hour","kilowatt hour","kilowatt hours",3600000.0},
 };
 
 static Unit power_units[] = {
     {"watt","watt","watts",1.0},
     {"kilowatt","kilowatt","kilowatts",1000.0},
     {"megawatt","megawatt","megawatts",1000000.0},
-    {"horsepower_mechanical","horsepower (mechanical)","horsepower (mechanical)",745.69987158227022},
-    {"horsepower_metric","horsepower (metric)","horsepower (metric)",735.49875}
+    {"horsepower mechanical","horsepower (mechanical)","horsepower (mechanical)",745.69987158227022},
+    {"horsepower metric","horsepower (metric)","horsepower (metric)",735.49875}
 };
 
 static Unit pressure_units[] = {
@@ -111,9 +111,9 @@ static Unit pressure_units[] = {
 };
 
 static Unit speed_units[] = {
-    {"meter_per_second","meter per second","meters per second",1.0},
-    {"kilometer_per_hour","kilometer per hour","kilometers per hour",0.2777777777778},
-    {"mile_per_hour","mile per hour","miles per hour",0.44704},
+    {"meter per second","meter per second","meters per second",1.0},
+    {"kilometer per hour","kilometer per hour","kilometers per hour",0.2777777777778},
+    {"mile per hour","mile per hour","miles per hour",0.44704},
     {"knot","knot","knots",0.514444444444}
 };
 
