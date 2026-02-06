@@ -79,8 +79,8 @@ static Unit time_units[] = {
 };
 
 static Unit temperature_units[] = {
-    {"celsius","degree Celsius","degrees Celsius",0},
-    {"fahrenheit","degree Fahrenheit","degrees Fahrenheit",0},
+    {"celsius","Celsius degree","Celsius degrees",0},
+    {"fahrenheit","Fahrenheit degree","Fahrenheit degrees",0},
     {"kelvin","kelvin","kelvins",0}
 };
 
@@ -111,10 +111,10 @@ static Unit pressure_units[] = {
 };
 
 static Unit speed_units[] = {
-    {"meter per second","meter per second","meters per second",1.0},
-    {"kilometer per hour","kilometer per hour","kilometers per hour",0.2777777777778},
-    {"mile per hour","mile per hour","miles per hour",0.44704},
-    {"knot","knot","knots",0.514444444444}
+    {"meters per second","meter per second","meters per second",1.0},
+    {"kilometers per hour","kilometer per hour","kilometers per hour",0.2777777777778},
+    {"miles per hour","mile per hour","miles per hour",0.44704},
+    {"knots","knot","knots",0.514444444444}
 };
 
 Unit* get_units(UnitType type, int *count) {
